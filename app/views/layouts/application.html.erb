@@ -5,19 +5,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="/assetes/style.css">
 
 </head>
-<body>
+<body style="padding-top: 60px;">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
         <a class="navbar-brand" href="#">Kaleidoscope</a>
     </div>
+    <p class="navbar-text navbar-right">
+        <a href="/users/sign_up" class="navbar-link"><%= image_tag 'signup.png', style:"width: auto; max-height: 30px; margin-right: 10px;" %></a>
+        <a href="/users/sign_in" class="navbar-link"><%= image_tag 'signin.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
+    </p>
 </nav>
 
-<div class="container" style="padding-top: 60px;">
-  <%= bootstrap_flash %>
-    <%= yield %>
-</div>
+<%= bootstrap_flash %>
+<%= yield %>
 
 </body>
 </html>
