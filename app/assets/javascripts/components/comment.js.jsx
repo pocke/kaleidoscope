@@ -1,23 +1,62 @@
 var Comment = React.createClass({
-
-  render: function() {
-    return (
-        <div className="row">
-            <div className="col-xs-3"></div>
-            <div className="col-xs-6">
-                <CommentBox/>
-                <br/>
-                <br/>
-                <br/>
-                <Submit />
+    render: function () {
+        return (
+            <div id="main">
+                <div id="jap">あと
+                    <div id="RealtimeCountdownArea" className="timer"></div>
+                    <Submit />
+                </div>
+                <div className="row">
+                    <div className="col-xs-2"></div>
+                    <div className="col-xs-4">
+                        <CompanyInfo />
+                        <GroupInfo />
+                    </div>
+                    <div className="col-xs-4">
+                        <CommentBox/><br/><br/><br/>
+                    </div>
+                    <div className="col-xs-2"></div>
+                </div>
             </div>
-            <div className="col-xs-3"></div>
-        </div>
-    );
-  }
+        );
+    }
 });
 
 var HOST_NAME = "http://localhost:3000";
+
+var GroupInfo = React.createClass({
+    render: function () {
+        return (
+            <div className="column">
+                <h2>Member List(Skype)</h2>
+                <ul className="member-list">
+                    <li>大場 達也(toba)</li>
+                    <li>大場 達也(toba)</li>
+                    <li>大場 達也(toba)</li>
+                    <li>大場 達也(toba)</li>
+                    <li>大場 達也(toba)</li>
+                </ul>
+            </div>
+        );
+    }
+});
+
+var CompanyInfo = React.createClass({
+    render: function () {
+        return (
+            <div className="column">
+                <h2>HACKER WARS</h2>
+                <div className="descritpion">
+                    <p>遊んで遊んで遊びまくれ！</p>
+                    <p>遊んで遊んで遊びまくれ！</p>
+                    <p>遊んで遊んで遊びまくれ！</p>
+                    <p>遊んで遊んで遊びまくれ！</p>
+                    <p>遊んで遊んで遊びまくれ！</p>
+                </div>
+            </div>
+        );
+    }
+});
 
 var CommentNode = React.createClass({
     render: function () {
@@ -40,7 +79,7 @@ var CommentList = React.createClass({
     },
     componentDidMount: function () {
         this.getComments();
-        setInterval(this.getComments, 1000);
+        //setInterval(this.getComments, 1000);
     },
     getComments: function () {
         $.ajax({
@@ -58,17 +97,13 @@ var CommentList = React.createClass({
         });
     },
     render: function () {
-        var style = {
-            height: 300,
-            overflowY: "scroll"
-        };
         var commentList = this.state.comments.map(function (comment, index) {
             return (<CommentNode commnet={comment["text"]}
-                             time={comment["created_at"]}
-                             key={index}/>)
+                                 time={comment["created_at"]}
+                                 key={index}/>)
         });
         return (
-            <div style={style}>
+            <div className="comment-list">
                 <table className="table">
                     <tbody>{commentList}</tbody>
                 </table>
@@ -109,50 +144,12 @@ var CommentForm = React.createClass({
     }
 });
 
-var App = React.createClass({
-
-    getInitialState: function () {
-        return {modalIsOpen: false};
-    },
-
-    openModal: function () {
-        this.setState({modalIsOpen: true});
-    },
-
-    closeModal: function () {
-        this.setState({modalIsOpen: false});
-    },
-
-    render: function () {
-        return (
-            <div>
-                <button onClick={this.openModal}>Open Modal</button>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}>
-
-                    <h2>Hello</h2>
-                    <button onClick={this.closeModal}>close</button>
-                    <div>I am a modal</div>
-                    <form>
-                        <input />
-                        <button>tab navigation</button>
-                        <button>stays</button>
-                        <button>inside</button>
-                        <button>the modal</button>
-                    </form>
-                </Modal>
-            </div>
-        )
-    }
-});
 var CommentBox = React.createClass({
     event_id: 1,
     render: function () {
         return (
-            <div>
-                <h3>会場の叫び</h3>
+            <div className="column">
+                <h2>会場の叫び</h2>
                 <CommentList event_id={this.event_id}/>
                 <CommentForm event_id={this.event_id}/>
             </div>
@@ -165,8 +162,9 @@ var ModalForm = React.createClass({
         return (
             <div id="submit-modal">
                 <form>
-                    <input type="text"/>
-                    <input type="text"/>
+                    <label for="github_url">GitHub</label><input type="text" placeholder="url" name="github_url"/><br/>
+                    <label for="plezen_url">プレゼン</label><input type="text" placeholder="url" name="plezen_url"/>
+                    <button className="btn btn-success btn-block">提出</button>
                 </form>
             </div>
         );
@@ -179,11 +177,14 @@ var Submit = React.createClass({
         $('#submit-modal').plainModal('open', {overlay: {color: '#fff', opacity: 0.5}});
     },
     render: function () {
+
         return (
             <div>
+                <p className="center-img" onClick={this.showModal}><img className="large-button"
+                                                                        src="/assets/submit.png"/></p>
                 <ModalForm />
-                <button onClick={this.showModal} className="btn btn-success btn-block">提出</button>
             </div>
         );
     }
 });
+
