@@ -1,4 +1,14 @@
 <h1>Kaleidoscope</h1>
 
+TODO: サインインしていたら消す
 <a href="/users/sign_in">sign in</a>
 <a href="/users/sign_up">sign up</a>
+
+
+<% @events.each do |e| %>
+  <div>
+    <h2><%= e.name %></h2>
+  company: <%= e.company.name %>
+<%= e.start_date %> to <%= e.end_date %>
+  </div>
+<% end %>
