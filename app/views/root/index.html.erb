@@ -1,17 +1,27 @@
-<%= image_tag 'top.jpg' %>
-<h1>Kaleidoscope</h1>
+<div class="row text-center">
+  <%= image_tag 'top.jpg' %>
+</div>
 
-TODO: サインインしていたら消す
-<a href="/users/sign_in">sign in</a>
-<a href="/users/sign_up">sign up</a>
 
+<div class="row">
+  <div class="col-xs-6 text-center">
+    <a href="/users/sign_in" class="btn btn-lg btn-success">sign in</a>
+  </div>
+  <div class="col-xs-6 text-center">
+    <a href="/users/sign_up" class="btn btn-lg btn-danger">sign up</a>
+  </div>
+</div>
+
+<h2 class="page-header">Event 一覧</h2>
 
 <% @events.each do |e| %>
   <div>
-    <h2><%= e.name %></h2>
+    <h3><%= e.name %></h3>
   company: <%= e.company.name %>
   <%= e.start_date %> to <%= e.end_date %>
 
   <%= link_to "詳細を見る", event_path(e.id)  %>
+  <hr>
+  
   </div>
 <% end %>
