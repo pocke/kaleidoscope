@@ -16,4 +16,7 @@ e = Event.find_or_create_by!(
   description: "日本一の学生エンジニアを決定するハッカソン･イベント",
   limit_user: 50,
 )
-
+Comment.create!(
+  text: "Hi!",
+  event: e,
+)
