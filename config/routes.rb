@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :events do
     member do
       get 'register'
+      get 'now'
     end
   end
 
