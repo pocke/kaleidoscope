@@ -12,9 +12,18 @@
 <div>
   参加人数
   <%= "#{@event.users.count} / #{@event.limit_user}" %>
+
+  一覧
+  <ul>
+    <% @event.users.each do |u| %>
+      <li><%= u.email %></li>
+    <% end %>
+  </ul>
 </div>
 
 
 <%= @event.start_date %> to <%= @event.end_date %>
 
-<%= link_to "参加する", register_event_path(@event.id) %>
+<% unless @event.user_ids.include?(current_user.id) %>
+  <%= link_to "参加する", register_event_path(@event.id) %>
+<% end %>
