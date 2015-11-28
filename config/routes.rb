@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     member do
       get 'register'
       get 'now'
+      get 'feedback'
     end
   end
 

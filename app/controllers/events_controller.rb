@@ -4,6 +4,11 @@ class EventsController < ApplicationController
     @event = Event.find(id)
   end
 
+  def feedback
+    id = params.require(:id)
+    @event = Event.find(id)
+  end
+
   def now
   end
 
