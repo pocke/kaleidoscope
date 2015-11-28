@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   root 'root#index'
 
   namespace :api do
-    resources :users
+    resources :users do
+      collection do
+        get 'skill_list'
+      end
+    end
     resources :events
     resources :comments
   end

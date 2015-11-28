@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   # dummy
   def skype_id
   end
+
+  SkillList = %w[Rails CakePHP Play Android iOS Node.js jQuery React Angular.js Vue.js]
 end
