@@ -1,34 +1,30 @@
-<div class="row text-center" style="margin-top: -20px; padding-top: 20px; padding-bottom: 20px; background-color: #222">
-  <%= image_tag 'top.jpg' %>
-
-  <div class="row" style="padding-top: 10px;">
-    <div class="col-xs-6 text-center">
-      <a href="/users/sign_in">
-        <%= image_tag 'login.png' %>
-      </a>
-    </div>
-    <div class="col-xs-6 text-center">
-      <a href="/users/sign_up">
-        <%= image_tag 'signup.png' %>
-      </a>
-    </div>
-  </div>
+<div style="background-color: #222">
+    <%= image_tag 'top.jpg', style:"width: 100vw; height: auto;" %>
 </div>
 
-
+<div class="container">
 <div class="row">
 </div>
 
-<h2 class="page-header">Event 一覧</h2>
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+    <h2 class="page-header">Event 一覧</h2>
+    <div class="event-list">
+        <% @events.each do |e| %>
+            <div>
+                <h3><%= e.name %>
+                    <small>&nbsp;by&nbsp;<%= e.company.name %></small>
+                </h3>
+                <h5>期間：<%= e.start_date.strftime("%m/%d %H:%M") %> ~ <%= e.end_date.strftime("%m/%d %H:%M") %></h5>
 
-<% @events.each do |e| %>
-  <div>
-    <h3><%= e.name %><small>&nbsp;by&nbsp;<%= e.company.name %></small></h3>
-  <%= e.start_date.strftime("%Y年%m月%d日 %H時%M分") %> to <%= e.end_date.strftime("%Y年%m月%d日 %H時%M分") %>
-  <br>
+                <p><%= e.description %></p>
 
-  <%= link_to "詳細を見る", event_path(e.id)  %>
-  <hr>
-  
-  </div>
-<% end %>
+                <%= link_to "詳細を見る", event_path(e.id) %>
+                <hr>
+
+            </div>
+        <% end %>
+    </div>
+</div>
+<div class="col-xs-2"></div>
+</div>
