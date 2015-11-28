@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
 
     kmeans = Kmeans::Cluster.new(hash, {
-      centroids:  user.size / 4,
+      centroids:  self.users.size / 4,
       loop_max:  100,
     })
 
