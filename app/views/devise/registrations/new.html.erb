@@ -27,11 +27,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
   </div>
 
+
   <div class="field">
     <%= f.label :skill %><br />
     <%= f.select :skill, ['Engineer', 'Designer'], class: 'form-control' %>
   </div>
 
+  <br>
+  
   <div class="actions">
     <%= f.submit "Sign up", class: 'btn btn-success ' %>
   </div>
