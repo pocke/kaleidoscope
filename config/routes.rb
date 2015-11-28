@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :events
   end
 
-  resources :events
+  resources :events do
+    member do
+      get 'register'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

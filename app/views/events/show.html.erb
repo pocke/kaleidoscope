@@ -1,9 +1,20 @@
 <h1><%= @event.name %>&nbsp;<small><%= @event.company.name %></small></h1> 
 
 <div>
+  <%= @event.description %>
+</div>
+
+<div>
+  賞品
+  <%= @event.prize %>
+</div>
+
+<div>
   参加人数
   <%= "#{@event.users.count} / #{@event.limit_user}" %>
 </div>
 
 
 <%= @event.start_date %> to <%= @event.end_date %>
+
+<%= link_to "参加する", register_event_path(@event.id) %>
