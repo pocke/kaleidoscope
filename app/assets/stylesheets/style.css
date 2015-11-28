@@ -57,7 +57,16 @@
     padding: 10px;
     background-color: #fff;
     border: blue solid 1px;
+    width: 500px;
     display: none;
+}
+
+#submit-modal h3{
+    border-bottom: gray solid 1px;
+}
+
+.modal-button {
+    margin-right: 10px;
 }
 
 .large-button {
@@ -81,4 +90,16 @@
 
 .member-list li {
     margin-top: 10px;
+}
+
+.input-column {
+    margin: 20px;
+}
+
+.modal-form {
+    margin: 30px;
+}
+
+input.input-modal {
+    width: auto;
 }

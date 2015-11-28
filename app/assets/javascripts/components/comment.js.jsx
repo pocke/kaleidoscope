@@ -3,7 +3,7 @@ var Comment = React.createClass({
         return (
             <div id="main">
                 <div id="jap">あと
-                    <div id="RealtimeCountdownArea" className="timer"></div>
+                    <Timer targetDate={new Date(2015, 10, 29, 16, 0, 0).getTime()}/>
                     <Submit />
                 </div>
                 <div className="row">
@@ -23,6 +23,57 @@ var Comment = React.createClass({
 });
 
 var HOST_NAME = "http://localhost:3000";
+
+var Timer = React.createClass({
+    getInitialState: function () {
+        return {
+            remainingTime: this.calculateRemainingTime()
+        };
+    },
+    calculateRemainingTime: function () {
+        var nowDate = new Date().getTime();
+        var targetDate = this.props.targetDate;
+        if (nowDate > targetDate) {
+            return (
+                <div className="timer">終了！</div>
+            )
+        }
+        var diffDate = targetDate - nowDate;
+        diffDate %= ( 1000 * 60 * 60 * 24 );
+        var diffDays = diffDate / ( 1000 * 60 * 60 * 24 );
+        diffDate %= ( 1000 * 60 * 60 * 24 );
+        var diffHour = diffDate / ( 1000 * 60 * 60 );
+        diffDate %= ( 1000 * 60 * 60 );
+        var diffMinute = diffDate / ( 1000 * 60 );
+        diffDate %= ( 1000 * 60 );
+        var diffSecond = diffDate / 1000;
+
+        return this.format2digits(diffDays) + ":"
+            + this.format2digits(diffHour) + ":"
+            + this.format2digits(diffMinute) + ":"
+            + this.format2digits(diffSecond);
+    },
+    componentDidMount: function () {
+        setInterval(this.setRemainingTime, 1000);
+    },
+    setRemainingTime: function () {
+        this.setState({
+            remainingTime: this.calculateRemainingTime()
+        });
+    },
+    format2digits: function (num) {
+        num = Math.floor(num);
+        if (num < 10) {
+            return "0" + num;
+        }
+        return num;
+    },
+    render: function () {
+        return (
+            <div className="timer">{this.state.remainingTime}</div>
+        );
+    }
+});
 
 var GroupInfo = React.createClass({
     render: function () {
@@ -46,11 +97,16 @@ var CompanyInfo = React.createClass({
         return (
             <div className="column">
                 <h2>HACKER WARS</h2>
+
                 <div className="descritpion">
                     <p>遊んで遊んで遊びまくれ！</p>
+
                     <p>遊んで遊んで遊びまくれ！</p>
+
                     <p>遊んで遊んで遊びまくれ！</p>
+
                     <p>遊んで遊んで遊びまくれ！</p>
+
                     <p>遊んで遊んで遊びまくれ！</p>
                 </div>
             </div>
@@ -59,11 +115,16 @@ var CompanyInfo = React.createClass({
 });
 
 var CommentNode = React.createClass({
+    addLineBrake: function (str) {
+        return str.split("\n").map(function (line, index) {
+            return <p key={index}>{line}</p>
+        })
+    },
     render: function () {
         return (
             <tr>
                 <td>
-                    <p>{this.props.commnet}</p>
+                    {this.addLineBrake(this.props.commnet)}
                     <time className="pull-right">{this.props.time}</time>
                 </td>
             </tr>
@@ -79,7 +140,7 @@ var CommentList = React.createClass({
     },
     componentDidMount: function () {
         this.getComments();
-        //setInterval(this.getComments, 1000);
+        setInterval(this.getComments, 1000);
     },
     getComments: function () {
         $.ajax({
@@ -129,6 +190,7 @@ var CommentForm = React.createClass({
             success: function (data) {
             }.bind(this),
             error: function (xhr, status, err) {
+                cnosole.error(xhr);
             }.bind(this)
         });
         document.getElementById("comment_textarea").value = "";
@@ -161,10 +223,19 @@ var ModalForm = React.createClass({
     render: function () {
         return (
             <div id="submit-modal">
-                <form>
-                    <label for="github_url">GitHub</label><input type="text" placeholder="url" name="github_url"/><br/>
-                    <label for="plezen_url">プレゼン</label><input type="text" placeholder="url" name="plezen_url"/>
-                    <button className="btn btn-success btn-block">提出</button>
+                <h3>提出</h3>
+                <form className="submit-modal">
+                    <div className="input-column">
+                        <label htmlFor="github-url">Github</label>
+                        <input type="text" className="form-control" id="github-url" placeholder="https://github.com/..."/>
+                    </div>
+
+                    <div className="input-column">
+                        <label htmlFor="prezen-url">プレゼン</label>
+                        <input type="text" className="form-control" id="prezen-url" placeholder="https://drive.google.com/..."/>
+                    </div>
+                    <button className="btn btn-success modal-button pull-right">提出</button>
+                    <button className="btn btn-danger modal-button pull-right">キャンセル</button>
                 </form>
             </div>
         );
@@ -174,14 +245,14 @@ var ModalForm = React.createClass({
 var Submit = React.createClass({
     showModal: function (e) {
         e.preventDefault();
-        $('#submit-modal').plainModal('open', {overlay: {color: '#fff', opacity: 0.5}});
+        $('#submit-modal').plainModal('open', {overlay: {color: '#000', opacity: 0.5}});
     },
     render: function () {
-
         return (
             <div>
-                <p className="center-img" onClick={this.showModal}><img className="large-button"
-                                                                        src="/assets/submit.png"/></p>
+                <p className="center-img" onClick={this.showModal}>
+                    <img className="large-button" src="/assets/submit.png"/>
+                </p>
                 <ModalForm />
             </div>
         );
