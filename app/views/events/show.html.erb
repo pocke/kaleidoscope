@@ -1,29 +1,41 @@
-<h1><%= @event.name %>&nbsp;<small><%= @event.company.name %></small></h1> 
+<div class="col-xs-2" xmlns="http://www.w3.org/1999/html"></div>
+<div class="col-xs-8 event-detail">
+    <h1><%= @event.name %>&nbsp;</h1>
 
-<div>
-  <%= @event.description %>
-</div>
+    <div>
+        <h4>○ 主催者</h4>
 
-<div>
-  賞品
-  <%= @event.prize %>
-</div>
+        <p><%= @event.company.name %></p>
+    </div>
 
-<div>
-  参加人数
-  <%= "#{@event.users.count} / #{@event.limit_user}" %>
+    <div>
+        <h4>○ 概要</h4>
 
-  一覧
-  <ul>
-    <% @event.users.each do |u| %>
-      <li><%= u.email %></li>
+        <p><%= @event.description %></p>
+    </div>
+
+    <div>
+        <h4>○ 賞品</h4>
+
+        <p><%= @event.prize %></p>
+    </div>
+
+    <div>
+        <h4>○ 参加人数</h4>
+
+        <p><%= "#{@event.users.count} / #{@event.limit_user}" %></p>
+    </div>
+
+
+    <div>
+        <h4>○ 期間</h4>
+
+        <p><%= @event.start_date.strftime("%m/%d %H:%M") %> to <%= @event.end_date.strftime("%m/%d %H:%M") %></p>
+    </div>
+    <% unless @event.user_ids.include?(current_user.id) %>
+        <div class="putin-button">
+        <a href="<%= register_event_path(@event.id) %>"><%= image_tag 'putin.png', style:"width: auto; max-height: 40px;" %></a>
+        </div>
     <% end %>
-  </ul>
 </div>
-
-
-<%= @event.start_date %> to <%= @event.end_date %>
-
-<% unless @event.user_ids.include?(current_user.id) %>
-  <%= link_to "参加する", register_event_path(@event.id) %>
-<% end %>
+<div class="col-xs-2"></div>
