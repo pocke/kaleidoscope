@@ -18,7 +18,7 @@
         <a href="/users/sign_up" class="navbar-link"><%= image_tag 'signup.png', style:"width: auto; max-height: 30px; margin-right: 10px;" %></a>
         <a href="/users/sign_in" class="navbar-link"><%= image_tag 'signin.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
     <% else %>
-        <a href="/users/edit" class="navbar-link"><%= gravatar(current_user.email) %>&nbsp;<%= current_user.nickname %>&nbsp;</a>
+        <a href="/users/edit" class="navbar-link"><%= image_tag 'prof.png', style: 'height: 30px' %>&nbsp;</a>
         <a href="/users/sign_out" class="navbar-link"><%= image_tag 'signout.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
     <% end %>
     </p>
