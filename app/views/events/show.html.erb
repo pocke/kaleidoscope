@@ -1,4 +1,9 @@
 <h1><%= @event.name %>&nbsp;<small><%= @event.company.name %></small></h1> 
 
+<div>
+  参加人数
+  <%= "#{@event.users.count} / #{@event.limit_user}" %>
+</div>
+
 
 <%= @event.start_date %> to <%= @event.end_date %>

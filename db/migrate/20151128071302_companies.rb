@@ -9,6 +9,9 @@ class Companies < ActiveRecord::Migration
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.integer :company_id, null: false
+      t.string  :prize, null: false
+      t.text  :description, null: false
+      t.integer  :limit_user, null: false
     end
   end
 end

@@ -12,5 +12,8 @@ e = Event.find_or_create_by!(
   start_date: Time.local(2015, 11, 28, 10), 
   end_date: Time.local(2015, 11, 29, 16),
   company: c,
+  prize: "10万円",
+  description: "日本一の学生エンジニアを決定するハッカソン･イベント",
+  limit_user: 50,
 )
 

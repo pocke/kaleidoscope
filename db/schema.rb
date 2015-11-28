@@ -18,10 +18,13 @@ ActiveRecord::Schema.define(version: 20151128080526) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string  "name",       null: false
-    t.date    "start_date", null: false
-    t.date    "end_date",   null: false
-    t.integer "company_id", null: false
+    t.string  "name",        null: false
+    t.date    "start_date",  null: false
+    t.date    "end_date",    null: false
+    t.integer "company_id",  null: false
+    t.string  "prize",       null: false
+    t.text    "description", null: false
+    t.integer "limit_user",  null: false
   end
 
   create_table "users", force: :cascade do |t|
