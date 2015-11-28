@@ -122,12 +122,10 @@ var CommentNode = React.createClass({
     },
     render: function () {
         return (
-            <tr>
-                <td>
-                    {this.addLineBrake(this.props.commnet)}
-                    <time className="pull-right">{this.props.time}</time>
-                </td>
-            </tr>
+            <div className="comment">
+                {this.addLineBrake(this.props.commnet)}
+                <div className="comment-time">{this.props.time}</div>
+            </div>
         )
     }
 });
@@ -165,9 +163,7 @@ var CommentList = React.createClass({
         });
         return (
             <div className="comment-list">
-                <table className="table">
-                    <tbody>{commentList}</tbody>
-                </table>
+                {commentList}
             </div>
         );
     }
@@ -197,7 +193,7 @@ var CommentForm = React.createClass({
     },
     render: function () {
         return (
-            <form id={this.formId}>
+            <form id={this.formId} className="comment-form">
                 <input type="hidden" name="event_id" value={this.props.event_id}/>
                 <textarea className="form-control" rows="3" name="text" id="comment_textarea"></textarea>
                 <button onClick={this.updateComment} className="btn btn-primary pull-right">送信</button>
@@ -224,15 +220,18 @@ var ModalForm = React.createClass({
         return (
             <div id="submit-modal">
                 <h3>提出</h3>
+
                 <form className="submit-modal">
                     <div className="input-column">
                         <label htmlFor="github-url">Github</label>
-                        <input type="text" className="form-control" id="github-url" placeholder="https://github.com/..."/>
+                        <input type="text" className="form-control" id="github-url"
+                               placeholder="https://github.com/..."/>
                     </div>
 
                     <div className="input-column">
                         <label htmlFor="prezen-url">プレゼン</label>
-                        <input type="text" className="form-control" id="prezen-url" placeholder="https://drive.google.com/..."/>
+                        <input type="text" className="form-control" id="prezen-url"
+                               placeholder="https://drive.google.com/..."/>
                     </div>
                     <button className="btn btn-success modal-button pull-right">提出</button>
                     <button className="btn btn-danger modal-button pull-right">キャンセル</button>

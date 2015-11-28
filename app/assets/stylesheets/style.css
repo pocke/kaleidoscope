@@ -1,3 +1,4 @@
+
 .event-list{
     margin: 20px;
 }
@@ -75,13 +76,15 @@
 }
 
 .comment-list {
-    height: 300px;
+    height: 350px;
     overflow-y: scroll;
-    margin: 20px;
+    padding: 10px;
+    border: gray solid 2px;
 }
 
 .column {
     margin: 30px;
+    padding: 20px;
 }
 
 .descritpion {
@@ -102,4 +105,23 @@
 
 input.input-modal {
     width: auto;
+}
+
+.comment {
+    border-bottom: darkgray solid 1px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.comment p{
+    line-height: 16px;
+}
+
+.comment-form {
+    margin-top: 10px;
+}
+
+.comment-time {
+    width: 90px;
+    margin-left: auto;
 }
