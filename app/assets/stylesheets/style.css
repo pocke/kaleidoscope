@@ -25,9 +25,60 @@
     text-align: center;
 }
 
-.left-img{
+.left-img {
     text-align: left;
-    position:relative;
-    left : 20px;
+    position: relative;
+    left: 20px;
     top: 15px;
+}
+
+#jap {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 80px;
+    color: red;
+    font-family: arial black;
+    background-color: black;
+}
+
+.timer {
+    background-color: black;
+    font-size: 150px;
+    color: red;
+    font-family: 'Wallpoet', monospace;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#submit-modal {
+    padding: 10px;
+    background-color: #fff;
+    border: blue solid 1px;
+    display: none;
+}
+
+.large-button {
+    width: 300px;
+    height: auto;
+}
+
+.comment-list {
+    height: 300px;
+    overflow-y: scroll;
+    margin: 20px;
+}
+
+.column {
+    margin: 30px;
+}
+
+.descritpion {
+    margin-left: 20px;
+}
+
+.member-list li {
+    margin-top: 10px;
 }
