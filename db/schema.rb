@@ -14,8 +14,10 @@
 ActiveRecord::Schema.define(version: 20151128085923) do
 
   create_table "comments", force: :cascade do |t|
-    t.string  "text",     null: false
-    t.integer "event_id", null: false
+    t.string   "text",       null: false
+    t.integer  "event_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
