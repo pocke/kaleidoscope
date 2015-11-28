@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128111521) do
+ActiveRecord::Schema.define(version: 20151128114901) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "text",       null: false
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20151128111521) do
     t.string  "prize",       null: false
     t.text    "description", null: false
     t.integer "limit_user",  null: false
+  end
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer "event_id",   null: false
+    t.integer "user_id",    null: false
+    t.string  "name",       null: false
+    t.string  "github_url"
+    t.string  "slide_url"
   end
 
   create_table "users", force: :cascade do |t|
