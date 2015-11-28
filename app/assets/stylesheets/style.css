@@ -21,3 +21,13 @@
     margin-left: auto;
     width: 240px;
 }
+.center-img{
+    text-align: center;
+}
+
+.left-img{
+    text-align: left;
+    position:relative;
+    left : 20px;
+    top: 15px;
+}
