@@ -4,6 +4,9 @@ class EventsController < ApplicationController
     @event = Event.find(id)
   end
 
+  def now
+  end
+
   def register
     id = params.require(:id)
     u = current_user

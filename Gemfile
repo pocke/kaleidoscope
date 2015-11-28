@@ -52,3 +52,4 @@ end
 gem 'highline'
 gem 'devise'
 gem 'quiet_assets'
+gem 'react-rails', '~> 1.0'
