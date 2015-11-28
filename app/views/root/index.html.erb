@@ -9,6 +9,8 @@ TODO: サインインしていたら消す
   <div>
     <h2><%= e.name %></h2>
   company: <%= e.company.name %>
-<%= e.start_date %> to <%= e.end_date %>
+  <%= e.start_date %> to <%= e.end_date %>
+
+  <%= link_to "詳細を見る", event_path(e.id)  %>
   </div>
 <% end %>
