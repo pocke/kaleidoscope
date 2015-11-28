@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:pocke/kmeans.git
+  revision: d34b6de55e1585bbbb777f262bc41f20e946752e
+  specs:
+    kmeans (0.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -192,6 +198,7 @@ DEPENDENCIES
   highline
   jbuilder (~> 2.0)
   jquery-rails
+  kmeans!
   pry
   pry-doc
   pry-rails
