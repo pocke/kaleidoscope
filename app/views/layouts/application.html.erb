@@ -7,26 +7,30 @@
     <%= csrf_meta_tags %>
 </head>
 <body style="padding-top: 60px;">
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/" style="padding: 15px 0 5px 20px"><%= image_tag 'logo.png', style: 'height: 100%;' %></a>
-    </div>
-    <p class="navbar-text navbar-right">
-    <% if !current_user %>
-        <a href="/users/sign_up" class="navbar-link"><%= image_tag 'signup.png', style:"width: auto; max-height: 30px; margin-right: 10px;" %></a>
-        <a href="/users/sign_in" class="navbar-link"><%= image_tag 'signin.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="padding: 15px 0 5px 20px"><%= image_tag 'logo.png', style: 'height: 100%;' %></a>
+        </div>
+        <p class="navbar-text navbar-right">
+            <% if !current_user %>
 
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'navbar-link' %>
+             <a href="<%=user_omniauth_authorize_path(:facebook)%>" class="navbar-link"><%= image_tag 'facebook.jpg', style:"width: auto; max-height: 30px; margin-right: 20px;" %></a>
 
-    <% else %>
-        <a href="/users/edit" class="navbar-link"><%= image_tag 'prof.png', style: 'height: 30px' %>&nbsp;</a>
-        <a href="/users/sign_out" class="navbar-link"><%= image_tag 'signout.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
-    <% end %>
-    </p>
-</nav>
+            <a href="/users/sign_up" class="navbar-link"><%= image_tag 'signup.png', style:"width: auto; max-height: 30px; margin-right: 10px;" %></a>
 
-<%= bootstrap_flash %>
-<%= yield %>
+            <a href="/users/sign_in" class="navbar-link"><%= image_tag 'signin.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
+<!-- 
+            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'navbar-link' %>
+ -->
+            <% else %>
+            <a href="/users/edit" class="navbar-link"><%= image_tag 'prof.png', style: 'height: 30px' %>&nbsp;</a>
+            <a href="/users/sign_out" class="navbar-link"><%= image_tag 'signout.png', style:"width: auto; max-height: 30px; margin-right: 40px;" %></a>
+            <% end %>
+        </p>
+    </nav>
+
+    <%= bootstrap_flash %>
+    <%= yield %>
 
 </body>
 </html>
