@@ -1,9 +1,14 @@
 <div class="col-xs-2" xmlns="http://www.w3.org/1999/html"></div>
 <div class="col-xs-8 event-detail">
-    <h1><%= @event.name %>&nbsp;</h1>
+    <h1><%= @event.name %>&nbsp;
+    <% if @event.end_date < Time.zone.now %>
+        <a href="/events/<%= @event.id %>/feedback" class="btn btn-warning pull-right" style="margin: 10px;">結果を見る</a>
+    <% end %>
+    </h1>
     <p class="left-img">
-    <%= image_tag 'event_sample.jpg', style:"height: auto; max-width: 500px;" %>
+        <%= image_tag 'event_sample.jpg', style:"height: auto; max-width: 90%;" %>
     </p>
+
     <div>
         <h4>○ 主催者</h4>
 
@@ -36,7 +41,7 @@
     </div>
     <% unless @event.user_ids.include?(current_user.id) %>
         <div class="putin-button">
-        <a href="<%= register_event_path(@event.id) %>"><%= image_tag 'putin.png', style:"width: auto; max-height: 40px;" %></a>
+            <a href="<%= register_event_path(@event.id) %>"><%= image_tag 'putin.png', style:"width: auto; max-height: 40px;" %></a>
         </div>
     <% end %>
 </div>
