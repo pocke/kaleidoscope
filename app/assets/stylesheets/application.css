@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+input,
+button,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
