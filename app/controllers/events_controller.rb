@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     uids.push(u.id)
     e.user_ids = uids
     e.save!
+    flash[:notice] = "#{e.name} に参加が確定しました!"
     redirect_to event_path(id)
   end
 end
