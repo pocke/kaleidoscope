@@ -73,6 +73,7 @@
 .large-button {
     width: 300px;
     height: auto;
+    margin: 30px;
 }
 
 .comment-list {
