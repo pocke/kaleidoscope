@@ -53,5 +53,6 @@ Comment.create!(
     nickname: g.kanji,
     skill_list: User::SkillList.select{rand(3) == 2},
     events: [e],
+    skype_id: g.last.hiragana.to_roma,
   )
 end
