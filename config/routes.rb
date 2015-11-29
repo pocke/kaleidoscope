@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get 'skill_list'
+        get 'team_member'
       end
     end
     resources :events
