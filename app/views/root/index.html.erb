@@ -12,7 +12,7 @@
             <% @events.select { |e| e.user_ids.include?(current_user.id) }.select { |e| e.start_date < Time.zone.now && Time.zone.now < e.end_date }.each do |e| %>
                 <a href="/events/<%= e.id %>/now" class="alert alert-danger text-center" style="display: block;margin: 20px;">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    予約したハッカソンが開催中!
+                    参加登録したハッカソンが開催中!
                 </a>
             <% end %>
         <% end %>
