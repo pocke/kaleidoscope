@@ -32,9 +32,6 @@ has_many :events, through: :users_events
 
 serialize :skill_list
 
-  # dummy
-  def skype_id
-  end
 
   SkillList = %w[Rails CakePHP Play Android iOS Node.js jQuery React Angular.js Vue.js]
 

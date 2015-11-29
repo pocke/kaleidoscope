@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :nickname
     devise_parameter_sanitizer.for(:sign_up) << :skill
+    devise_parameter_sanitizer.for(:sign_up) << :skype_id
   end
   # GET /resource/sign_up
   # def new
