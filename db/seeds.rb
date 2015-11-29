@@ -45,11 +45,12 @@ Comment.create!(
 
 # user data
 35.times do |i|
+  g = Gimei.name
   User.create(
-    email: "#{i}@gmail.com",
+    email: "#{g.first.hiragana.to_roma}@gmail.com",
     password: "hogehoge",
     skill: "engineer",
-    nickname: "User#{i}",
+    nickname: g.kanji,
     skill_list: User::SkillList.select{rand(3) == 2},
     events: [e],
   )
