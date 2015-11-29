@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
   <div class="text-center">
   <h1 class="page-header"><%= @event.name %> <small>by <%= @event.company.name %></small></h1>
 
@@ -9,11 +9,9 @@
   <%= image_tag 'dainikai.png'  %>
   </div>
 
+  <h2 style="position: relative;" id="rank1"><%= image_tag 'rank01.png' %> <span style="position: absolute; bottom: 0;">Kaleidoscope</span></h2></a>
 
-
-  <h2 style="position: relative;"><%= image_tag 'rank01.png' %> <span style="position: absolute; bottom: 0;">Kaleidoscope by Kaleido</span></h2>
-
-  <div>
+  <div id="rank1-content" class="rank-content">
     <ul>
       <li>GitHub URL: <a href="https://github.com/pocke/kaleidoscope">https://github.com/pocke/kaleidoscope</a></li>
     </ul>
@@ -24,9 +22,9 @@
   <hr />
 
 
-  <h3 style="position: relative;"><%= image_tag 'rank02.png', style: 'width: 100px' %>  <span style="position: absolute; bottom: 0;">MILLENNIUM FALCON by Han solo</span></h3>
+  <h3 style="position: relative;" id="rank2"><%= image_tag 'rank02.png', style: 'width: 100px' %>  <span style="position: absolute; bottom: 0;">MILLENNIUM FALCON</span></h3>
 
-  <div>
+  <div id="rank2-content" class="rank-content">
     <ul>
       <li>GitHub URL: <a href="https://github.com/pocke/kaleidoscope">https://github.com/pocke/kaleidoscope</a></li>
     </ul>
@@ -36,9 +34,9 @@
 
   <hr />
 
-  <h4 style="position: relative;"><%= image_tag 'rank03.png', style: 'width: 80px' %>  <span style="position: absolute; bottom: 0;">X-WING by Yoda</span></h4>
+  <h4 style="position: relative;" id="rank3"><%= image_tag 'rank03.png', style: 'width: 80px' %>  <span style="position: absolute; bottom: 0;">X-WING</span></h4>
 
-  <div>
+  <div id="rank3-content" class="rank-content">
     <ul>
       <li>GitHub URL: <a href="https://github.com/pocke/kaleidoscope">https://github.com/pocke/kaleidoscope</a></li>
     </ul>
@@ -48,10 +46,11 @@
 
   <hr />
 
-  <ul>
-    <li>4位 SNOWSPEEDER by Luke</li>
-    <li>5位 SPEEDER BIKE by Padme</li>
-  </ul>
+    <div id="rank4"><strong>4位</strong>SNOWSPEEDERE</div>
+    <div id="rank4-content" class="rank-content"></div>
+    <div id="rank5"><strong>5位</strong>SPEEDER BIKE</div>
+    <div id="rank5-content" class="rank-content"></div>
+    <script src="/assets/rankingSlide.js"></script>
 </div>
 
 
