@@ -20,7 +20,8 @@
 
         <div class="event-list">
             <% @events.each do |e| %>
-                <div>
+              <div class="row">
+                <div class="col-xs-8">
                     <h3><%= e.name %>
                         <small>&nbsp;by&nbsp;<%= e.company.name %></small>
                     </h3>
@@ -31,6 +32,14 @@
                     <%= link_to "詳細を見る", event_path(e.id) %>
                     <hr>
                 </div>
+                <% if e.in_session? %>
+                  <a href="/events/<%=e.id%>/now" class="col-xs-4 label label-info" style="font-size: 24px; display: block">開催中!</a>
+                <% elsif e.after_session? %>
+                  <div class="col-xs-4 label label-default" style="font-size: 22px">終了しました</div>
+                <% else %>
+                  <div class="col-xs-4 label label-default" style="font-size: 22px">開催前です</div>
+                <% end %>
+              </div>
             <% end %>
         </div>
     </div>
