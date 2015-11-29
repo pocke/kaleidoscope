@@ -3,7 +3,7 @@ var Comment = React.createClass({
         return (
             <div id="main">
                 <div id="jap">あと
-                    <Timer targetDate={new Date(2015, 10, 29, 16, 0, 0).getTime()}/>
+                    <Timer targetDate={new Date(2015, 10, 29, 21, 30, 0).getTime()}/>
                     <Submit />
                 </div>
                 <div className="row">
@@ -91,6 +91,7 @@ var GroupInfo = React.createClass({
             dataType: "json",
             cache: false,
             success: function (data) {
+              console.log(data);
                 this.setState({
                     memberList: data
                 });
@@ -101,7 +102,7 @@ var GroupInfo = React.createClass({
         });
     },
     render: function () {
-        var memberList = this.state.memberList.map(function(content, index) {
+        var memberList = this.state.memberList.filter(function(e){return e;}).map(function(content, index) {
             return(
                 <li key={index}>{content.nickname}({content.skype_id})</li>
             );
@@ -124,15 +125,10 @@ var CompanyInfo = React.createClass({
                 <h2>HACKER WARS</h2>
 
                 <div className="descritpion">
-                    <p>遊んで遊んで遊びまくれ！</p>
-
-                    <p>遊んで遊んで遊びまくれ！</p>
-
-                    <p>遊んで遊んで遊びまくれ！</p>
-
-                    <p>遊んで遊んで遊びまくれ！</p>
-
-                    <p>遊んで遊んで遊びまくれ！</p>
+                <p>
+今回のハッカーウォーズは、出題された課題を、より効果的、効率的に解決できる方法を開発したチームが勝利する課題解決バトル型のハッカソンです。
+                </p>
+                    <h3>勝利チームには優勝賞金10万円!!</h3>
                 </div>
             </div>
         );
