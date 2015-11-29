@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129012038) do
+ActiveRecord::Schema.define(version: 20151129023732) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "text",       null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20151129012038) do
     t.string   "skill_list"
     t.integer  "uid",                    limit: 8
     t.string   "provider"
+    t.string   "skype_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
