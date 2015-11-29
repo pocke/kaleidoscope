@@ -128,4 +128,16 @@ input.input-modal {
 }
 
 .rank-content {
+    border-bottom: darkgray solid 1px;
+    margin-bottom: 20px;
+}
+
+.rank-content h4 {
+    border-bottom: darkgray solid 1px;
+    width: 135px;
+}
+
+.company-comment {
+    margin-left: 30px;
+    margin-right: 30px;
 }

@@ -1,56 +1,80 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
-  <div class="text-center">
-  <h1 class="page-header"><%= @event.name %> <small>by <%= @event.company.name %></small></h1>
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
 
-  <%= image_tag 'kekka.png' %>
-  <br>
-  <br>
-  
-  <%= image_tag 'dainikai.png'  %>
-  </div>
+        <h1 class="page-header"><%= @event.name %>
+            <small>by <%= @event.company.name %></small>
+        </h1>
 
-  <h2 style="position: relative;" id="rank1"><%= image_tag 'rank01.png' %> <span style="position: absolute; bottom: 0;">Kaleidoscope</span></h2></a>
+        <%= image_tag 'kekka.png' %>
+        <br>
+        <br>
+        <%= image_tag 'dainikai.png' %>
 
-  <div id="rank1-content" class="rank-content">
-    <ul>
-      <li>GitHub URL: <a href="https://github.com/pocke/kaleidoscope">https://github.com/pocke/kaleidoscope</a></li>
-    </ul>
+        <h2 style="position: relative;" id="rank1"><%= image_tag 'rank01.png' %>
+            <span style="position: absolute; bottom: 0;" class="text-center">Kaleidoscope</span></h2>
 
-      <script async class="speakerdeck-embed" data-id="0ce3c9937774478ea54e97a9224c9130" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-  </div>
+        <div id="rank1-content" class="rank-content">
+            <script async class="speakerdeck-embed" data-id="0ce3c9937774478ea54e97a9224c9130" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+            <div class="company-comment">
+                <h4>企業のコメント</h4>
+                テステステス
+                テステステス
+                テステステス
+                テステステス
+            </div>
+            <div class="text-center" style="margin: 20px">
+                <a class="btn btn-primary btn-lg" href="https://github.com/pocke/kaleidoscope" style="margin-right: 20px">Github</a>
+                <a class="btn btn-primary btn-lg" href="https://github.com/pocke/kaleidoscope" style="background-color: deepskyblue;border: 2px deepskyblue">Consept</a>
+            </div>
+        </div>
 
-  <hr />
+        <h3 style="position: relative;" id="rank2"><%= image_tag 'rank02.png', style:'width: 100px' %>
+            <span style="position: absolute; bottom: 0;">MILLENNIUM FALCON</span></h3>
+
+        <div id="rank2-content" class="rank-content">
+            <script async class="speakerdeck-embed" data-id="0ce3c9937774478ea54e97a9224c9130" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+            <div class="company-comment">
+                <h4>企業のコメント</h4>
+                テステステス
+                テステステス
+                テステステス
+                テステステス
+            </div>
+            <div class="text-center" style="margin: 20px">
+                <a class="btn btn-primary btn-lg" href="https://github.com/pocke/kaleidoscope" style="margin-right: 20px">Github</a>
+                <a class="btn btn-primary btn-lg" href="https://github.com/pocke/kaleidoscope" style="background-color: deepskyblue;border: 2px deepskyblue">Consept</a>
+            </div>
+        </div>
 
 
-  <h3 style="position: relative;" id="rank2"><%= image_tag 'rank02.png', style: 'width: 100px' %>  <span style="position: absolute; bottom: 0;">MILLENNIUM FALCON</span></h3>
+        <h4 style="position: relative;" id="rank3"><%= image_tag 'rank03.png', style:'width: 80px' %>
+            <span style="position: absolute; bottom: 0;">X-WING</span></h4>
 
-  <div id="rank2-content" class="rank-content">
-    <ul>
-      <li>GitHub URL: <a href="https://github.com/pocke/kaleidoscope">https://github.com/pocke/kaleidoscope</a></li>
-    </ul>
+        <div id="rank3-content" class="rank-content">
+            <script async class="speakerdeck-embed" data-id="0ce3c9937774478ea54e97a9224c9130" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+            <div class="company-comment">
+                <h4>企業のコメント</h4>
+                テステステス
+                テステステス
+                テステステス
+                テステステス
+            </div>
+            <div class="text-center" style="margin: 20px">
+                <a class="btn btn-primary btn-lg" href="https://github.com/pocke/kaleidoscope" style="margin-right: 20px">Github</a>
+                <a class="btn btn-primary btn-lg" href="https://github.com/pocke/kaleidoscope" style="background-color: deepskyblue;border: 2px deepskyblue">Consept</a>
+            </div>
+        </div>
 
-      <script async class="speakerdeck-embed" data-id="0ce3c9937774478ea54e97a9224c9130" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-  </div>
+        <hr/>
 
-  <hr />
+        <div id="rank4"><strong>4位</strong>SNOWSPEEDERE</div>
+        <div id="rank4-content" class="rank-content"></div>
+        <div id="rank5"><strong>5位</strong>SPEEDER BIKE</div>
+        <div id="rank5-content" class="rank-content"></div>
+        <script src="/assets/rankingSlide.js"></script>
+    </div>
+    <div class="col-xs-2"></div>
 
-  <h4 style="position: relative;" id="rank3"><%= image_tag 'rank03.png', style: 'width: 80px' %>  <span style="position: absolute; bottom: 0;">X-WING</span></h4>
-
-  <div id="rank3-content" class="rank-content">
-    <ul>
-      <li>GitHub URL: <a href="https://github.com/pocke/kaleidoscope">https://github.com/pocke/kaleidoscope</a></li>
-    </ul>
-
-      <script async class="speakerdeck-embed" data-id="0ce3c9937774478ea54e97a9224c9130" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-  </div>
-
-  <hr />
-
-    <div id="rank4"><strong>4位</strong>SNOWSPEEDERE</div>
-    <div id="rank4-content" class="rank-content"></div>
-    <div id="rank5"><strong>5位</strong>SPEEDER BIKE</div>
-    <div id="rank5-content" class="rank-content"></div>
-    <script src="/assets/rankingSlide.js"></script>
-</div>
 
 
