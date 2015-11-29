@@ -41,6 +41,14 @@ Comment.create!(
   text: "Hi!",
   event: e,
 )
+Comment.create!(
+  text: "開始10分で完成した!",
+  event: e,
+)
+Comment.create!(
+  text: "↑嘘でしょw",
+  event: e,
+)
 
 
 # user data
