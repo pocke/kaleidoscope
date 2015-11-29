@@ -30,4 +30,12 @@ class Event < ActiveRecord::Base
 
     kmeans.cluster.values
   end
+
+  def in_session?
+    return start_date < Time.zone.now && Time.zone.now < end_date
+  end
+
+  def after_session?
+    return end_date < Time.now
+  end
 end
