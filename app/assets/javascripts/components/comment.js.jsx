@@ -76,16 +76,41 @@ var Timer = React.createClass({
 });
 
 var GroupInfo = React.createClass({
+    getInitialState: function () {
+        return ({
+            memberList: []
+        })
+    },
+    componentDidMount: function() {
+      this.getComments();
+    },
+    getComments: function () {
+        $.ajax({
+            url: HOST_NAME + "/api/users/team_member",
+            type: 'GET',
+            dataType: "json",
+            cache: false,
+            success: function (data) {
+                this.setState({
+                    memberList: data
+                });
+            }.bind(this),
+            error: function (xhr, status, err) {
+                conole.error(xhr);
+            }.bind(this)
+        });
+    },
     render: function () {
+        var memberList = this.state.memberList.map(function(content, index) {
+            return(
+                <li key={index}>{content.nickname}({content.skype_id})</li>
+            );
+        });
         return (
             <div className="column">
                 <h2>Member List(Skype)</h2>
                 <ul className="member-list">
-                    <li>大場 達也(toba)</li>
-                    <li>大場 達也(toba)</li>
-                    <li>大場 達也(toba)</li>
-                    <li>大場 達也(toba)</li>
-                    <li>大場 達也(toba)</li>
+                    {memberList}
                 </ul>
             </div>
         );

@@ -8,10 +8,14 @@
 
     <div class="col-xs-2"></div>
     <div class="col-xs-8">
-        <a href="/events/1/now" class="alert alert-danger text-center" style="display: block;margin: 20px;">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            予約したハッカソンが開催中!
-        </a>
+        <% if current_user %>
+            <% @events.select { |e| e.user_ids.include?(current_user.id) }.select { |e| e.start_date < Time.zone.now && Time.zone.now < e.end_date }.each do |e| %>
+                <a href="/events/<%= e.id %>/now" class="alert alert-danger text-center" style="display: block;margin: 20px;">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    予約したハッカソンが開催中!
+                </a>
+            <% end %>
+        <% end %>
         <h2 class="page-header">Event 一覧</h2>
 
         <div class="event-list">
