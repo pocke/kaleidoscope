@@ -3,7 +3,7 @@ var Comment = React.createClass({
         return (
             <div id="main">
                 <div id="jap">あと
-                    <Timer targetDate={new Date(2015, 10, 29, 21, 30, 0).getTime()}/>
+                    <Timer targetDate={new Date(2015, 12, 5, 21, 30, 0).getTime()}/>
                     <Submit />
                 </div>
                 <div className="row">
